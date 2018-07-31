@@ -28,7 +28,7 @@ export default class ItemRange extends React.Component {
       </div>
     ) : (
       <div
-        {...styling('itemRange', this.state.expanded)}
+        {...styling('itemRange', this.state.expanded, this.props.keyPath)}
         onClick={this.handleClick}
       >
         <JSONArrow
