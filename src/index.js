@@ -76,8 +76,8 @@ function getStateFromProps(props) {
   }
   return {
     styling: function() {
-      if (props.styleOverrides && props.styleOverride[arguments[0]]) {
-        return props.styleOverrides[arguments[0]](...arguments.slice(1));
+      if (props.styleOverrides && props.styleOverrides[arguments[0]]) {
+        return props.styleOverrides[arguments[0]](...arguments);
       }
       return createStylingFromTheme(theme)(...arguments);
     }
