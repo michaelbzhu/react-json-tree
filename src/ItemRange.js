@@ -8,7 +8,8 @@ export default class ItemRange extends React.Component {
     from: PropTypes.number.isRequired,
     to: PropTypes.number.isRequired,
     renderChildNodes: PropTypes.func.isRequired,
-    nodeType: PropTypes.string.isRequired
+    nodeType: PropTypes.string.isRequired,
+    keyPath: PropTypes.array.isRequired
   };
 
   constructor(props) {
@@ -22,7 +23,7 @@ export default class ItemRange extends React.Component {
     const { styling, from, to, renderChildNodes, nodeType } = this.props;
 
     return this.state.expanded ? (
-      <div {...styling('itemRange', this.state.expanded)}>
+      <div {...styling('itemRange', this.state.expanded, this.props.keyPath)}>
         {renderChildNodes(this.props, from, to)}
       </div>
     ) : (

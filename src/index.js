@@ -75,7 +75,12 @@ function getStateFromProps(props) {
     }
   }
   return {
-    styling: createStylingFromTheme(theme)
+    styling: () => {
+      if (props.styleOverrides && props.styleOverride[arguments[0]]) {
+        return props.styleOverrides[arguments[0]](...arguments.slice(1));
+      }
+      return createStylingFromTheme(theme)(...arguments);
+    }
   };
 }
 
