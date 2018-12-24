@@ -65,7 +65,13 @@ const JSONNode = ({
       return (
         <JSONValueNode
           {...simpleNodeProps}
-          valueGetter={raw => raw.toISOString()}
+          valueGetter={raw => {
+            if (isNaN(raw)) {
+              return raw.toString();
+            } else {
+              return raw.toISOString();
+            }
+          }}
         />
       );
     case 'Null':
