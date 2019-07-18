@@ -116,7 +116,7 @@ export default class JSONTree extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (['theme', 'invertTheme'].find(k => nextProps[k] !== this.props[k])) {
+    if (['styleOverrides', 'theme', 'invertTheme'].find(k => nextProps[k] !== this.props[k])) {
       this.setState(getStateFromProps(nextProps));
     }
   }
