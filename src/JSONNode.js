@@ -43,8 +43,10 @@ const JSONNode = ({
     case 'Error':
     case 'WeakMap':
     case 'WeakSet':
+      console.log('rendered ObjectNode');
       return <JSONObjectNode {...nestedNodeProps} />;
     case 'Array':
+      console.log('rendered ArrayNode');
       return <JSONArrayNode {...nestedNodeProps} />;
     case 'Iterable':
     case 'Map':
@@ -106,7 +108,8 @@ JSONNode.propTypes = {
   styling: PropTypes.func.isRequired,
   value: PropTypes.any,
   valueRenderer: PropTypes.func.isRequired,
-  isCustomNode: PropTypes.func.isRequired
+  isCustomNode: PropTypes.func.isRequired,
+  iconRenderer: PropTypes.func
 };
 
 export default JSONNode;

@@ -37,7 +37,8 @@ JSONValueNode.propTypes = {
   ).isRequired,
   valueRenderer: PropTypes.func.isRequired,
   value: PropTypes.any,
-  valueGetter: PropTypes.func
+  valueGetter: PropTypes.func,
+  iconRenderer: PropTypes.func
 };
 
 JSONValueNode.defaultProps = {

@@ -162,6 +162,7 @@ export default class JSONNestedNode extends React.Component {
       createItemString(data, collectionLimit)
     );
     const stylingArgs = [keyPath, nodeType, expanded, expandable];
+    console.log('rendered JSONNestedNode with', { stylingArgs });
 
     return hideRoot ? (
       <li {...styling('rootNode', ...stylingArgs)}>
