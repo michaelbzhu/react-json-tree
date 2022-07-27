@@ -23,7 +23,7 @@ const JSONValueNode = ({
       {valueRenderer(valueGetter(value), value, ...keyPath)}
     </span>
     <span {...styling('renderedIcon', nodeType, keyPath)}>
-      {iconRenderer(keyPath, nodeType)}
+      {iconRenderer(keyPath, nodeType, false, false)}
     </span>
   </li>
 );
