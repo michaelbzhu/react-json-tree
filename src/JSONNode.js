@@ -14,6 +14,7 @@ const JSONNode = ({
   value,
   valueRenderer,
   isCustomNode,
+  iconRenderer,
   ...rest
 }) => {
   const nodeType = isCustomNode(value) ? 'Custom' : objType(value);
@@ -26,7 +27,8 @@ const JSONNode = ({
     nodeType,
     styling,
     value,
-    valueRenderer
+    valueRenderer,
+    iconRenderer
   };
 
   const nestedNodeProps = {

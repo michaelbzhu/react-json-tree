@@ -12,7 +12,8 @@ const JSONValueNode = ({
   keyPath,
   valueRenderer,
   value,
-  valueGetter
+  valueGetter,
+  iconRenderer
 }) => (
   <li {...styling('value', nodeType, keyPath)}>
     <label {...styling(['label', 'valueLabel'], nodeType, keyPath)}>
@@ -20,6 +21,9 @@ const JSONValueNode = ({
     </label>
     <span {...styling('valueText', nodeType, keyPath)}>
       {valueRenderer(valueGetter(value), value, ...keyPath)}
+    </span>
+    <span {...styling('renderedIcon', nodeType, keyPath)}>
+      {iconRenderer(keyPath, nodeType)}
     </span>
   </li>
 );

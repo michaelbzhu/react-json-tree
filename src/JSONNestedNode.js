@@ -94,7 +94,8 @@ export default class JSONNestedNode extends React.Component {
     level: PropTypes.number.isRequired,
     sortObjectKeys: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     isCircular: PropTypes.bool,
-    expandable: PropTypes.bool
+    expandable: PropTypes.bool,
+    iconRenderer: PropTypes.func
   };
 
   static defaultProps = {
@@ -140,7 +141,8 @@ export default class JSONNestedNode extends React.Component {
       collectionLimit,
       keyPath,
       labelRenderer,
-      expandable
+      expandable,
+      iconRenderer
     } = this.props;
     const { expanded } = this.state;
     const renderedChildren =
@@ -188,6 +190,9 @@ export default class JSONNestedNode extends React.Component {
           onClick={this.handleClick}
         >
           {renderedItemString}
+        </span>
+        <span {...styling('renderedIcon', ...stylingArgs)}>
+          {iconRenderer(...stylingArgs)}
         </span>
         <ul {...styling('nestedNodeChildren', ...stylingArgs)}>
           {renderedChildren}

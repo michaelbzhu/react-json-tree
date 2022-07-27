@@ -9,6 +9,7 @@ import JSONNode from './JSONNode';
 import createStylingFromTheme from './createStylingFromTheme';
 import { invertTheme } from 'react-base16-styling';
 
+const emptyRenderer = value => null;
 const identity = value => value;
 const expandRootNode = (keyName, data, level) => level === 0;
 const defaultItemString = (type, data, itemType, itemString) => (
@@ -104,6 +105,7 @@ export default class JSONTree extends React.Component {
     getItemString: defaultItemString,
     labelRenderer: defaultLabelRenderer,
     valueRenderer: identity,
+    iconRenderer: emptyRenderer,
     postprocessValue: identity,
     isCustomNode: noCustomNode,
     collectionLimit: 50,
@@ -116,7 +118,11 @@ export default class JSONTree extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (['styleOverrides', 'theme', 'invertTheme'].find(k => nextProps[k] !== this.props[k])) {
+    if (
+      ['styleOverrides', 'theme', 'invertTheme'].find(
+        k => nextProps[k] !== this.props[k]
+      )
+    ) {
       this.setState(getStateFromProps(nextProps));
     }
   }
